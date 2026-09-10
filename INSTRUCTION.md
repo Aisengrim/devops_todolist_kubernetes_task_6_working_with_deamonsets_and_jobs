@@ -43,7 +43,7 @@ kubectl get pods -n mateapp -o wide
 #### DaemonSet Logs
 To check logs for the DaemonSet container executing a `curl` request every 5 seconds to `todoapp-service.todoapp`:
 ```bash
-kubectl logs -n mateapp -l app=todoapp-daemonset --tail=20
+kubectl logs -n mateapp -l app=daemonset --tail=20
 ```
 
 #### CronJob Logs
@@ -53,5 +53,5 @@ To check logs for completed CronJob pod executions hitting `/api/health` every 4
 kubectl get jobs -n mateapp
 
 # View logs of the latest job pod created by CronJob
-kubectl logs -n mateapp -l app=todoapp-cronjob --tail=20
+kubectl logs -n mateapp -l app=cronjob --tail=20
 ```
