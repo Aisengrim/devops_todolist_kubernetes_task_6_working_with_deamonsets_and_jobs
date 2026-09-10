@@ -3,6 +3,8 @@ kind: CronJob
 metadata:
   name: todoapp-cronjob
   namespace: mateapp
+  labels:
+    app: todoapp
 spec:
   schedule: "*/4 * * * *"
   concurrencyPolicy: Allow
@@ -12,9 +14,12 @@ spec:
   jobTemplate:
     spec:
       template:
+        metadata:
+          labels:
+            app: todoapp-cronjob
         spec:
           containers:
-            - name: cronjob-curl
+            - name: cron-curl
               image: busyboxplus:curl
               imagePullPolicy: IfNotPresent
               command:

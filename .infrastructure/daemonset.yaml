@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: todoapp-daemon
+  name: todoapp
   namespace: mateapp
   labels:
     app: todoapp
@@ -15,7 +15,7 @@ spec:
         app: todoapp
     spec:
       containers:
-        - name: daemon-busybox
+        - name: todoapp
           image: busyboxplus:curl
           resources:
             requests:
@@ -27,4 +27,4 @@ spec:
           command:
             - /bin/sh
             - -c
-            - "while true; do curl http://todoapp-service/api; sleep 5; done"
+            - "while true; do curl http://todoapp-service.todoapp/api/health; sleep 5; done"
