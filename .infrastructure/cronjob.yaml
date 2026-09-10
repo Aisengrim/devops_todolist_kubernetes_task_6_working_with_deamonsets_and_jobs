@@ -16,7 +16,7 @@ spec:
       template:
         metadata:
           labels:
-            app: todoapp-cronjob
+            app: todoapp
         spec:
           containers:
             - name: cron-curl

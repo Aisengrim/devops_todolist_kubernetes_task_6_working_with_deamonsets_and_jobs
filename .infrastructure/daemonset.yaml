@@ -15,7 +15,7 @@ spec:
         app: todoapp
     spec:
       containers:
-        - name: todoapp
+        - name: todoapp-daemonset
           image: busyboxplus:curl
           resources:
             requests:
